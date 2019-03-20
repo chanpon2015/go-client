@@ -22,7 +22,7 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>ツール</v-toolbar-title>
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
@@ -58,8 +58,8 @@
       {
         id: "2",
         icon: "settings",
-        name: "設定",
-        link: "/settings",
+        name: "エクセル ⇒ TSV",
+        link: "/convert_excel_to_tsv",
       }
     ];
     transition(link: string) {

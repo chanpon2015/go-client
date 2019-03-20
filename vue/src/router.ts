@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import Settings from './views/Settings.vue';
+import ConvertExcelToTsv from './views/ExcelToTsv.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -20,9 +20,9 @@ export default new Router({
           },
         },
         {
-          path: 'settings',
+          path: 'convert_excel_to_tsv',
           components: {
-            main: Settings,
+            main: ConvertExcelToTsv,
           },
         },
       ],

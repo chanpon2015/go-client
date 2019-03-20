@@ -36,8 +36,8 @@ func main() {
 			},
 			OnWait: func(_ *astilectron.Astilectron, ws []*astilectron.Window, _ *astilectron.Menu, _ *astilectron.Tray, _ *astilectron.Menu) error {
 				w = ws[0]
-				cronStart()
-				createNotification()
+				// cronStart()
+				// createNotification()
 				return nil
 			},
 			RestoreAssets: RestoreAssets,

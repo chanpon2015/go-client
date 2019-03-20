@@ -1,28 +1,30 @@
 package main
 
 import (
-	"encoding/base64"
-	"io/ioutil"
-	"os"
+	"encoding/json"
+
+	"github.com/chanpon2015/go-client/excel"
 
 	"github.com/asticode/go-astilectron"
 	"github.com/asticode/go-astilectron-bootstrap"
 )
 
+type ExcelToTsvPayload struct {
+	XlsxPath  string `json:"xlsx_path"`
+	ExportDir string `json:"export_dir"`
+}
+
 // handleMessages handles messages
-func handleMessages(_ *astilectron.Window, m bootstrap.MessageIn) (payload interface{}, err error) {
+func handleMessages(_ *astilectron.Window, m bootstrap.MessageIn) (interface{}, error) {
 	switch m.Name {
-	case "test":
-		payload = "ok"
-		sendNotification()
-	case "download":
-		file, err := os.Open("/test/sample.tsv")
-		if err != nil {
-			payload = err
+	case "excel_to_tsv":
+		var p ExcelToTsvPayload
+		if err := json.Unmarshal(m.Payload, &p); err != nil {
+			return nil, err
 		}
-		b, _ := ioutil.ReadAll(file)
-		payload = base64.StdEncoding.EncodeToString(b)
+		excel.ExportTsvFile(p.XlsxPath, p.ExportDir)
+		return &p, nil
 	default:
+		return nil, nil
 	}
-	return
 }

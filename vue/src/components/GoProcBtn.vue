@@ -1,6 +1,5 @@
 <template>
-    <v-btn :color="color" v-on:click="buttonClick">
-        <img src="../assets/gopher_head.png">
+    <v-btn :color="color" v-on:click="buttonClick" class="go_proc_btn">
         {{ value }}
     </v-btn>
 </template>
@@ -13,18 +12,24 @@
             color: String,
             value: String,
             goProcName: String,
-            goProcPaylod: String,
+            goProcPayload: String,
         }
     })
     export default class GoProcBtn extends Vue {
         public buttonClick() {
             let sendData = {
                name: this.$props.goProcName,
-               payload: this.$props.goProcPaylod,
+               payload: this.$props.goProcPayload,
             };
             astilectron.sendMessage(sendData, (response: any) => {
-                alert(response.payload);
+                console.log(response);
             })
         }
     }
 </script>
+
+<style scoped>
+.go_proc_btn {
+    background: url(../assets/gopher_head.png) center no-repeat;
+}
+</style>

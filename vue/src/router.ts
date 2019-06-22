@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import ConvertExcelToTsv from './views/ExcelToTsv.vue';
+import Slack from './views/Slack.vue';
+import Settings from './views/Settings.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -16,13 +17,13 @@ export default new Router({
         {
           path: 'home',
           components: {
-            main: Home,
+            main: Slack,
           },
         },
         {
-          path: 'convert_excel_to_tsv',
+          path: 'settings',
           components: {
-            main: ConvertExcelToTsv,
+            main: Settings,
           },
         },
       ],

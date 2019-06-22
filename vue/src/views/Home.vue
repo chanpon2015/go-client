@@ -58,8 +58,8 @@
       {
         id: "2",
         icon: "settings",
-        name: "エクセル ⇒ TSV",
-        link: "/convert_excel_to_tsv",
+        name: "設定",
+        link: "/settings",
       }
     ];
     transition(link: string) {
